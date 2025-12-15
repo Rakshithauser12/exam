@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+            width: 100vh;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://tse2.mm.bing.net/th/id/OIP.-Pxst4GXs6AbJGlyh1B2dwAAAA?pid=Api&P=0&h=180");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .box1{
+            height: 300px;
+            width: 550px;
+          background-color: antiquewhite;
+            border: 2px solid black;
+            border-radius: 20px;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        button{
+            color: green;
+            border-color: black;
+        }
+        .pass{
+            color: green;
+        }
+        .fail{
+            color: red;
+        }
+    
+    </style>
+    <div class="box1">
+      <h1><b>Your results are out!!!!!😊😊</b></h1>
+      <input type="text" id="name" placeholder="Name">
+      <button onclick="exam()">Submit</button>
+      <p id="result"></p>
+    </div>
+    <script>
+       function exam(){
+        var name=document.getElementById("name").value;
+        var marks=Math.floor(Math.random()*101);
+        var resultText="";
+        var resultClass="";
+        if(marks<35){
+            resultText=name+" is failed";
+            resultClass="fail";
+        }
+        else{
+            resultClass="pass";
+            if(marks>=75){
+                resultText=name+" passed with distinction";
+            }
+            else if(marks>60){
+                resultText=name+" passed in first class";
+            }
+            else if(marks>50){
+                resultText=name+" passed in second class";
+            }
+            else{
+                resultText=name+" just pass";
+            }
+        }
+        var resultPara=document.getElementById("result");
+        resultPara.innerHTML=resultText;
+        resultPara.className=resultClass;
+       }
+    </script>
+</body>
+</html>
